@@ -1,0 +1,106 @@
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-color: #1a1a1a; /* Dark background color */
+    color: white; /* Light text color */
+}
+
+.navbar {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 2vh 0;
+    background-color: #262626; /* Darker navbar color */
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3); /* Stronger shadow */
+}
+
+.navbar-button {
+    background-color: #3498db;
+    border: none;
+    color: white;
+    padding: 1.5vh 4vh;
+    cursor: pointer;
+    font-size: 2vh;
+    border-radius: 2vh;
+    transition: background-color 0.3s ease;
+}
+
+.navbar-button:hover {
+    background-color: #2980b9;
+}
+
+.navbar-buttons {
+    display: flex;
+    gap: 1vh;
+    align-items: center;
+}
+
+.centered-content {
+    text-align: center;
+}
+
+.title {
+    font-size: 4vh;
+    margin-bottom: 3vh;
+}
+
+.login-register {
+    display: flex;
+    flex-direction: column;
+    gap: 1vh;
+    background-color: #3498db;
+    border: none;
+    color: white;
+    padding: 1.5vh 4vh;
+    cursor: pointer;
+    font-size: 2vh;
+    border-radius: 2vh;
+    transition: background-color 0.3s ease;
+}
+
+.login-register:hover {
+    background-color: #2980b9; /* Darker color on hover */
+}
+
+.login-button,
+.register-button {
+    background-color: #1a1a1a; /* Green color */
+    border: none;
+    color: white;
+    padding: 1.5vh 4vh;
+    cursor: pointer;
+    font-size: 2vh;
+    border-radius: 2vh;
+    transition: background-color 0.3s ease;
+}
+
+.login-button:hover,
+.register-button:hover {
+    background-color:#262626 ; /* Darker green on hover */
+}
+
+/* Add your existing CSS styles here */
+
+/* Initial styles for the bottom bar */
+.bottom-bar {
+    position: fixed;
+    bottom: -40px; /* Hide the bottom bar initially */
+    left: 0;
+    width: 100%;
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    padding: 10px;
+    transition: bottom 0.3s ease-in-out;
+}
+
+
