@@ -23,7 +23,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_FILES["fileToUpload"])) {
     if ($stmt->execute()) {
         if (move_uploaded_file($_FILES["fileToUpload"]["tmp_name"], $uploadFile)) {
             $shareableLink = "https://example.com/downloads/" . $newFileName;
-            echo "File uploaded successfully. Share this link: <a href=\"$shareableLink\">$shareableLink</a>";
+            $shareableLink = urlencode($shareableLink); // Encode the link for URL
+
+            // Redirect back to upload.html with the shareable link as a query parameter
+            header("Location: upload.html?link=$shareableLink");
+            exit();
         } else {
             echo "Sorry, there was an error uploading your file.";
         }
@@ -33,32 +37,5 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_FILES["fileToUpload"])) {
 
     $stmt->close();
     $db->close();
-}
-
-// Implement a function to track and handle downloads
-function downloadFile($fileId) {
-    // Check if the user is authorized to download the file
-    if (isAuthorized($fileId)) {
-        // Serve the file to the user
-        serveFile($fileId);
-
-        // Mark the file as downloaded and remove it from the database and server
-        markFileAsDownloaded($fileId);
-    } else {
-        echo "Access Denied";
-    }
-}
-
-function isAuthorized($fileId) {
-    // Check authorization logic here
-    // For example, you may implement user authentication and permissions
-}
-
-function serveFile($fileId) {
-    // Serve the file to the user
-}
-
-function markFileAsDownloaded($fileId) {
-    // Update the database to mark the file as downloaded and remove it from the server
 }
 ?>
